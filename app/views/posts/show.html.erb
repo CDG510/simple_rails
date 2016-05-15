@@ -11,3 +11,19 @@
 <p>
     <%= link_to "edit", edit_post_path %> | <%= link_to "delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
 </p>
+
+<h3>Comments</h3>
+<!--  pulls comment partial, orders by most recent-->
+<%= render @post.comments.order("created_at DESC") %>
+
+<h4>Add Comment</h4>
+<!--  makes a basic form the necessary info for comments, corresponding to schema-->
+<%= form_for [@post, @post.comments.build] do |f|  %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+
+    <%= f.label :body %><br />
+    <%= f.text_field :body %><br />
+
+    <%= f.submit  %><br />
+<% end %>

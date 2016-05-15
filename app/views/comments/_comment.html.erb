@@ -1,0 +1,16 @@
+
+<div class="comments">
+    <p><strong><%= comment.name %></strong>
+
+    </p>
+    <p>
+            <%= comment.body %>
+    </p>
+
+<p>
+    <!--  link to delete method in controller, pass data, method, and alert message-->
+    <%= link_to "delete", [comment.post, comment], method: :delete, data: {confirm: "are you sure?"} %>
+</p>
+
+
+</div>
